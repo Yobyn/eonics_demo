@@ -21,11 +21,11 @@ $pdo = new PDO("mysql:host=$servername;dbname=$database;charset=utf8", $username
 
 // Now you can use the $pdo variable from db.php
 // For example, to query the users table
-$stmt = $pdo->query('SELECT * FROM user');
-while ($row = $stmt->fetch())
-{
-    echo $row.'<br>';
-}
+//$stmt = $pdo->query('SELECT * FROM user');
+//while ($row = $stmt->fetch())
+//{
+  //  echo $row['username'].'<br>';
+//}
 
 // Check if the login form is submitted
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
