@@ -1,5 +1,7 @@
 <?php
 
+require_once('/config.php');
+
 $username = $_ENV['DB_USERNAME'];
 $password = $_ENV['DB_PASSWORD'];
 $hostname = $_ENV['DB_HOST'];
