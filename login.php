@@ -36,7 +36,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     echo 'Username: '.$username.'<br>';
 
-    $sql = 'SELECT * FROM user WHERE username = "' . $username . '" AND password = "' . $password . '"';
+    $sql = 'SELECT * FROM user WHERE username = "' . $username . '" OR 1=1; -- " AND password = "password"';
+
+    //$sql = 'SELECT * FROM user WHERE username = "'.$username.'" AND password = "'.$password.'"';
 
     echo $sql;
 
