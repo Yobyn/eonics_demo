@@ -1,6 +1,6 @@
 <?php
 
-require_once('config.php');
+include 'config.php';
 
 $username = $_ENV['DB_USERNAME'];
 $password = $_ENV['DB_PASSWORD'];
