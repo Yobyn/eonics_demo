@@ -54,7 +54,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($user) {
         
         // Store the username in the session
-        $_SESSION['username'] = $username;
+        $_SESSION['username'] = $user['username'];
 
         // Redirect to index.php
         header('Location: index.php');
@@ -81,6 +81,6 @@ ob_end_flush();
     <label >Username:</label><br>
     <input type="text" name="namefield" required><br>
     <label >Password:</label><br>
-    <input type="password" name="password" required><br>
+    <input type="password" name="password" required><br><br>
     <input type="submit" value="Login">
 </form>
