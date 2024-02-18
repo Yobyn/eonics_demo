@@ -91,20 +91,26 @@ ob_end_flush();
         .error {
             color: red;
         }
+        .button-right {
+            align-self: flex-end;
+        }
     </style>
 </head>
 <body>
     <div class="center">
         <form action="login.php" method="post">
-            <label>Username:</label><br>
-            <input type="text" name="namefield" required><br>
-            <label>Password:</label><br>
+            <label>Username:</label><br><br>
+            <input type="text" name="namefield" required><br><br>
+            <label>Password:</label><br><br>
             <input type="password" name="password" required><br><br>
-            <input type="submit" value="Login">
+            <div class="button-right">
+                <input type="submit" value="Login">
+            </div>
         </form>
+        <br><br>
         <?php
         if (isset($loginError)) {
-            echo '<div class="error">Unable to login in</div>';
+            echo '<div class="error">Username and password incorrect, please try again</div>';
         }
         ?>
     </div>

@@ -30,6 +30,7 @@ ob_end_flush();
 <body>
     <div class="center">
         <?php echo 'Welcome, '.$_SESSION['username'] . ' you are logged in!'; ?>
+        <br><br>
 
         <form method="post">
             <input type="submit" name="logout" value="Logout">
