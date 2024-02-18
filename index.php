@@ -1,4 +1,6 @@
 <?php
+// Start output buffering
+ob_start();
 // Start the session
 session_start();
 
@@ -19,11 +21,9 @@ if (isset($_POST['logout'])) {
     header('Location: login.php');
     exit;
 }
+// End output buffering and send the output
+ob_end_flush();
 ?>
 <form method="post">
     <input type="submit" name="logout" value="Logout">
 </form>
-
-
-
-?>
