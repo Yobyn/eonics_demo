@@ -1,9 +1,8 @@
 use PDO;
 <?php
-use PDO;
 
 // Create a file-based SQLite database
-$pdo = new PDO('sqlite:/path/to/database.db');
+$pdo = new PDO('sqlite:db/database.db');
 
 // Enable error reporting for debugging purposes
 $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
