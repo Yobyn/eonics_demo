@@ -22,6 +22,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     echo 'Username: '.$username.'<br>';
 
+    $stmt = $pdo->prepare('SELECT * FROM users WHERE username = ?');
+    $stmt->execute([$username]);
+    $user = $stmt->fetch();
+
+    if ($user) {
+        echo 'User logged in with username: ' . $user;
+    } else {
+        // The username does not exist, so add the user
+        echo 'Unable to login in';
+    }
+
     // TODO: Validate the username and password
 
     // TODO: Perform authentication logic

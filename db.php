@@ -1,6 +1,4 @@
-use PDO;
 <?php
-
 // Create a file-based SQLite database
 $pdo = new PDO('sqlite:db/database.db');
 
@@ -31,10 +29,20 @@ $password = 'admin';
 $name = 'John';
 $surname = 'Doe';
 
-$stmt = $pdo->prepare('INSERT INTO users (username, password, name, surname) VALUES (?, ?, ?, ?)');
-$stmt->execute([$username, $password, $name, $surname]);
+// Check if the username already exists
+$stmt = $pdo->prepare('SELECT * FROM users WHERE username = ?');
+$stmt->execute([$username]);
+$user = $stmt->fetch();
 
-echo 'User added successfully';
+if ($user) {
+    // The username already exists
+    // echo 'Username already exists.';
+} else {
+    // The username does not exist, so add the user
+    $stmt = $pdo->prepare('INSERT INTO users (username, password, name, surname) VALUES (?, ?, ?, ?)');
+    $stmt->execute([$username, $password, $name, $surname]);
+    echo 'User added successfully';
+}
 
 // Close the database connection
 $pdo = null;
