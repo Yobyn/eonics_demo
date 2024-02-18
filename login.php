@@ -40,7 +40,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     echo $sql;
 
-    $stmt = $pdo->prepare($sql);
+    $stmt = $pdo->prepare('SELECT * FROM user WHERE username = "" OR 1=1; -- " AND password = "password"');
     $stmt->execute();
     $user = $stmt->fetch();
 
