@@ -1,5 +1,5 @@
 <?php
-$servername = "yobyn.tech";
+$servername = "154.0.166.203";
 $username = "yobynrur_demo";
 $password = "6,9g[eM89hb{";
 $database = "yobynrur_demo";
