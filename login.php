@@ -36,7 +36,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     echo 'Username: '.$username.'<br>';
 
-    $sql = 'SELECT * FROM user WHERE username =' . [$username];
+    $sql = 'SELECT * FROM user WHERE username =' . $username;
 
     echo $sql;
 
