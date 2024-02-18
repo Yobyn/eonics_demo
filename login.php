@@ -31,7 +31,7 @@ while ($row = $stmt->fetch())
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Get the submitted username and password
 
-    $username = $_POST['username'];
+    $username = $_POST['namefield'];
     $password = $_POST['password'];
 
     echo 'Username: '.$username.'<br>';
@@ -64,9 +64,9 @@ $pdo = null;
 ?>
 
 <form action="login.php" method="post">
-    <label for="username">Username:</label><br>
-    <input type="text" id="username" name="username" required><br>
-    <label for="password">Password:</label><br>
-    <input type="password" id="password" name="password" required><br>
+    <label >Username:</label><br>
+    <input type="text" name="namefield" required><br>
+    <label >Password:</label><br>
+    <input type="password" name="password" required><br>
     <input type="submit" value="Login">
 </form>
