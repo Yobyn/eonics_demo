@@ -1,5 +1,6 @@
 <?php
-
+// Start output buffering
+ob_start();
 // Start the session
 session_start();
 
@@ -18,7 +19,7 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-echo "Connected successfully ";
+//echo "Connected successfully ";
 
 // Initialize PDO
 $pdo = new PDO("mysql:host=$servername;dbname=$database;charset=utf8", $username, $password);
@@ -38,13 +39,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $username = $_POST['namefield'];
     $password = $_POST['password'];
 
-    echo 'Username: '.$username.'<br>';
+    //echo 'Username: '.$username.'<br>';
 
     //$sql = 'SELECT * FROM user WHERE username = "' . $username . '" OR 1=1; -- " AND password = "password"';
 
     $sql = 'SELECT * FROM user WHERE username = "'.$username.'" AND password = "'.$password.'"';
 
-    echo $sql;
+    //echo $sql;
 
     $stmt = $pdo->prepare($sql);
     $stmt->execute();
@@ -54,7 +55,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         
         // Store the username in the session
         $_SESSION['username'] = $username;
-        
+
         // Redirect to index.php
         header('Location: index.php');
         exit;
@@ -72,7 +73,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 // Close the database connection
 $pdo = null;
-
+// End output buffering and send the output
+ob_end_flush();
 ?>
 
 <form action="login.php" method="post">
