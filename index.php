@@ -11,8 +11,35 @@ if (!isset($_SESSION['username'])) {
     exit;
 }
 
-echo 'Welcome, '.$_SESSION['username'] . ' you are logged in!';
+// End output buffering and send the output
+ob_end_flush();
+?>
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .center {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+    </style>
+</head>
+<body>
+    <div class="center">
+        <?php echo 'Welcome, '.$_SESSION['username'] . ' you are logged in!'; ?>
 
+        <form method="post">
+            <input type="submit" name="logout" value="Logout">
+        </form>
+    </div>
+</body>
+</html>
+<?php
+// Start output buffering
+ob_start();
 // Check if the logout button is clicked
 if (isset($_POST['logout'])) {
     // Clear the username session
@@ -24,6 +51,3 @@ if (isset($_POST['logout'])) {
 // End output buffering and send the output
 ob_end_flush();
 ?>
-<form method="post">
-    <input type="submit" name="logout" value="Logout">
-</form>

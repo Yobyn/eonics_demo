@@ -61,7 +61,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit;
     } else {
         // The username does not exist, so add the user
-        echo 'Unable to login in';
+        $loginError = true;
     }
 
     // TODO: Validate the username and password
@@ -77,10 +77,36 @@ $pdo = null;
 ob_end_flush();
 ?>
 
-<form action="login.php" method="post">
-    <label >Username:</label><br>
-    <input type="text" name="namefield" required><br>
-    <label >Password:</label><br>
-    <input type="password" name="password" required><br><br>
-    <input type="submit" value="Login">
-</form>
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .center {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+        .error {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="center">
+        <form action="login.php" method="post">
+            <label>Username:</label><br>
+            <input type="text" name="namefield" required><br>
+            <label>Password:</label><br>
+            <input type="password" name="password" required><br><br>
+            <input type="submit" value="Login">
+        </form>
+        <?php
+        if (isset($loginError)) {
+            echo '<div class="error">Unable to login in</div>';
+        }
+        ?>
+    </div>
+</body>
+</html>
