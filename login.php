@@ -36,8 +36,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     echo 'Username: '.$username.'<br>';
 
-    $stmt = $pdo->prepare('SELECT * FROM user WHERE username = ?');
-    $stmt->execute([$username]);
+    $sql = 'SELECT * FROM user WHERE username =' . [$username];
+
+    echo $sql;
+
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute();
     $user = $stmt->fetch();
 
     if ($user) {
