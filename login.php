@@ -14,7 +14,7 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-echo "Connected successfully";
+echo "Connected successfully ";
 
 // Initialize PDO
 $pdo = new PDO("mysql:host=$servername;dbname=$database;charset=utf8", $username, $password);
@@ -42,7 +42,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     echo $sql;
 
-    $stmt = $pdo->prepare('SELECT * FROM user WHERE username = "" OR 1=1; -- " AND password = "password"');
+    $stmt = $pdo->prepare($sql);
     $stmt->execute();
     $user = $stmt->fetch();
 
