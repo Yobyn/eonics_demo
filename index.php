@@ -1,4 +1,6 @@
 <?php
+// Start the session
+session_start();
 
 // Check if the username is not set in the session
 if (!isset($_SESSION['username'])) {
