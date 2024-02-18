@@ -24,7 +24,7 @@ $pdo = new PDO("mysql:host=$servername;dbname=$database;charset=utf8", $username
 $stmt = $pdo->query('SELECT * FROM user');
 while ($row = $stmt->fetch())
 {
-    echo $row['username'].'<br>';
+    echo $row.'<br>';
 }
 
 // Check if the login form is submitted
@@ -36,7 +36,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     echo 'Username: '.$username.'<br>';
 
-    $stmt = $pdo->prepare('SELECT * FROM users WHERE username = ?');
+    $stmt = $pdo->prepare('SELECT * FROM user WHERE username = ?');
     $stmt->execute([$username]);
     $user = $stmt->fetch();
 
