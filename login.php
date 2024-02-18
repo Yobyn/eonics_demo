@@ -99,9 +99,9 @@ ob_end_flush();
 <body>
     <div class="center">
         <form action="login.php" method="post">
-            <label>Username:</label><br><br>
+            <label>Username:</label><br>
             <input type="text" name="namefield" required><br><br>
-            <label>Password:</label><br><br>
+            <label>Password:</label><br>
             <input type="password" name="password" required><br><br>
             <div class="button-right">
                 <input type="submit" value="Login">
