@@ -1,4 +1,8 @@
 <?php
+
+// Start the session
+session_start();
+
 // Include the config.php file
 require_once 'config.php';
 
@@ -47,7 +51,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $user = $stmt->fetch();
 
     if ($user) {
-        echo 'User logged in with username: ' . $user;
+        
+        // Store the username in the session
+        $_SESSION['username'] = $username;
+        
+        // Redirect to index.php
+        header('Location: index.php');
+        exit;
     } else {
         // The username does not exist, so add the user
         echo 'Unable to login in';
