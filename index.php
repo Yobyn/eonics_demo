@@ -1,6 +1,9 @@
 <?php
 
-include 'config.php';
+require 'vendor/autoload.php';
+
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+$dotenv->load();
 
 $username = $_ENV['DB_USERNAME'];
 $password = $_ENV['DB_PASSWORD'];
