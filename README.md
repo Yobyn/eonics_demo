@@ -1,4 +1,5 @@
 Include a php called config along side, your DB connection with below code:
+...
 <?php
 
 $username = "your_mysql_username";
@@ -8,3 +9,4 @@ $database = "your_mysql_databse";
 $port = "your_mysql_port";
 
 ?>
+...
