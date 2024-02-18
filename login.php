@@ -1,9 +1,23 @@
 <?php
-// Include the db.php file
-include 'db.php';
+// Include the config.php file
+require_once 'config.php';
 
-// Create a file-based SQLite database
-$pdo = new PDO('sqlite:db/database.db');
+// Create connection
+try {
+    $conn = new mysqli($servername, $username, $password, $database, $port);
+} catch (mysqli_sql_exception $e) {
+    die("Connection failed: " . $e->getMessage());
+}
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+echo "Connected successfully";
+
+// Initialize PDO
+$pdo = new PDO("mysql:host=$servername;dbname=$database;charset=utf8", $username, $password);
 
 // Now you can use the $pdo variable from db.php
 // For example, to query the users table
