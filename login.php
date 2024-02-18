@@ -21,7 +21,7 @@ $pdo = new PDO("mysql:host=$servername;dbname=$database;charset=utf8", $username
 
 // Now you can use the $pdo variable from db.php
 // For example, to query the users table
-$stmt = $pdo->query('SELECT * FROM users');
+$stmt = $pdo->query('SELECT * FROM user');
 while ($row = $stmt->fetch())
 {
     echo $row['username'].'<br>';
