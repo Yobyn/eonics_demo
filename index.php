@@ -1,9 +1,12 @@
 <?php
-$servername = "154.0.166.203";
-$username = "yobynrur_demo";
-$password = "6,9g[eM89hb{";
-$database = "yobynrur_demo";
+
+$username = $_ENV['DB_USERNAME'];
+$password = $_ENV['DB_PASSWORD'];
+$hostname = $_ENV['DB_HOST'];
+$database = $_ENV['DB_DATABASE'];
+
 $port = "3306";
+
 
 
 // Create connection
